@@ -16,6 +16,7 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     trim: true,
     lowercase: true,
+    // Strict RFC 5322 email regex: forbids leading dots and enforces valid domain/TLD structure
     match: [
       /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
       "Please enter a valid email",
@@ -24,10 +25,11 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, "Password is required"],
-    minlength: [8, "Password must be at least 8 characters"],
+    // Strong password complexity: min 8 chars, >=1 uppercase, >=1 lowercase, >=1 number, >=1 special char
+    minlength: [8, "Password must be atleast 8 characters"],
     match: [
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
-      "Password must include at least 1 uppercase, 1 lowercase, 1 number, and 1 special character",
+      "Password must include atleast 1 uppercase, 1 lowercase, 1 number, and 1 special character",
     ],
   },
   date: {

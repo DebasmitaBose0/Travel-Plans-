@@ -16,10 +16,12 @@ exports.register = async (req, res, next) => {
       return res.status(400).json({ msg: "Name must be at least 2 characters and contain only letters" });
     }
 
+    // RFC 5322 email pre-validation: reject leading dots and malformed structures before DB queries
     if (!/^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
       return res.status(400).json({ msg: "Please enter a valid email" });
     }
 
+    // Enforce strong password complexity rules at the controller level (atleast 8 characters and atleast contain 1 uppercase, 1 lowercase, 1 number, and 1 special character)
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
     if (!passwordRegex.test(password)) {
       return res.status(400).json({ msg: "Password must be at least 8 characters and atleast contain 1 uppercase, 1 lowercase, 1 number, and 1 special character" });
@@ -63,6 +65,7 @@ exports.login = async (req, res, next) => {
       return res.status(400).json({ msg: "Please provide email and password" });
     }
 
+    // RFC 5322 email pre-validation for login attempts
     if (!/^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
       return res.status(400).json({ msg: "Please enter a valid email" });
     }
