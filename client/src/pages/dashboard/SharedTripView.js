@@ -12,6 +12,7 @@ import {
 import PlaceIcon from "@mui/icons-material/Place";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import WalletIcon from "@mui/icons-material/Wallet";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const SharedTripView = () => {
   const { token } = useParams();
@@ -61,13 +62,26 @@ const SharedTripView = () => {
 
   return (
     <Box sx={{ maxWidth: 900, mx: "auto", p: { xs: 2, md: 4 } }}>
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        sx={{ mb: 1, display: "block" }}
+      <Box
+        sx={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 0.5,
+          bgcolor: "action.hover",
+          color: "text.secondary",
+          px: 1.5,
+          py: 0.5,
+          borderRadius: 2,
+          fontSize: "0.75rem",
+          fontWeight: 600,
+          mb: 2,
+          border: "1px solid",
+          borderColor: "divider",
+        }}
       >
-        👁️ Shared Trip (Read-only)
-      </Typography>
+        <VisibilityIcon sx={{ fontSize: 14 }} />
+        Shared Trip (Read-only)
+      </Box>
       <Box
         sx={{
           position: "relative",
