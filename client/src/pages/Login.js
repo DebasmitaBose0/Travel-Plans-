@@ -21,6 +21,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LoginIcon from "@mui/icons-material/Login";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PrimaryButton from "../components/PrimaryButton";
 
 const Login = () => {
@@ -251,8 +252,24 @@ const Login = () => {
         }}
       >
         <Box sx={{ maxWidth: 480, width: "100%" }}>
-          <Box sx={{ textAlign: "center", mb: 5 }}>
-            <Typography variant="h4" gutterBottom sx={{ fontWeight: 700 }}>
+          <Box sx={{ textAlign: "center", mb: 4 }}>
+            <Box
+              sx={{
+                width: 56,
+                height: 56,
+                borderRadius: "50%",
+                background: "linear-gradient(135deg, #1976D2 0%, #00BCD4 100%)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                mx: "auto",
+                mb: 2.5,
+                boxShadow: "0px 8px 20px rgba(25, 118, 210, 0.3)",
+              }}
+            >
+              <LockOutlinedIcon sx={{ color: "white", fontSize: 28 }} />
+            </Box>
+            <Typography variant="h4" gutterBottom sx={{ fontWeight: 800, tracking: "-0.5px" }}>
               Welcome Back
             </Typography>
             <Typography variant="body1" color="text.secondary">
