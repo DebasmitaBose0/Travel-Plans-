@@ -578,6 +578,8 @@ We are incredibly grateful to our mentors for their valuable support and code re
 
 [![GitHub](https://img.shields.io/badge/GitHub-hitesh--kumar123-181717?style=for-the-badge&logo=github)](https://github.com/hitesh-kumar123/Travel-Plans-)
 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hitesh--Kumar-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/hitesh-kumar-dev/)
+
 ---
 
 ⭐ **If PackGo helped you, please give it a star — it means a lot!** ⭐
