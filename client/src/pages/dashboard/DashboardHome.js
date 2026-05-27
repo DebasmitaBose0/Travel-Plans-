@@ -22,6 +22,7 @@ import DateRangeIcon from "@mui/icons-material/DateRange";
 import ArrowForwardIcon from "@mui/icons-material/East";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import HotelIcon from "@mui/icons-material/Hotel";
+import WavingHandIcon from "@mui/icons-material/WavingHand";
 import PrimaryButton from "../../components/PrimaryButton";
 import { getTrips } from "../../redux/actions/tripActions";
 import TripCountdownBadge from "../../components/TripCountdownBadge";
@@ -133,8 +134,29 @@ const DashboardHome = () => {
     <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
       {/* Greeting */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" sx={{ fontWeight: 800, mb: 0.5 }}>
-          Welcome back, {userName}! 👋
+        <Typography variant="h4" sx={{ fontWeight: 800, mb: 0.5, display: "flex", alignItems: "center" }}>
+          Welcome back, {userName}!{" "}
+          <Box
+            component="span"
+            sx={{
+              display: "inline-block",
+              animation: "wave 2.5s infinite",
+              transformOrigin: "70% 70%",
+              ml: 1.5,
+              "@keyframes wave": {
+                "0%": { transform: "rotate( 0.0deg)" },
+                "10%": { transform: "rotate(14.0deg)" },
+                "20%": { transform: "rotate(-8.0deg)" },
+                "30%": { transform: "rotate(14.0deg)" },
+                "40%": { transform: "rotate(-4.0deg)" },
+                "50%": { transform: "rotate(10.0deg)" },
+                "60%": { transform: "rotate( 0.0deg)" },
+                "100%": { transform: "rotate( 0.0deg)" },
+              },
+            }}
+          >
+            <WavingHandIcon sx={{ fontSize: "2.2rem", color: "#FFA726" }} />
+          </Box>
         </Typography>
         <Typography variant="body1" color="text.secondary">
           {totalTrips === 0
