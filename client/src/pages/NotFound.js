@@ -3,6 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Box, Typography, Button, Container, useTheme } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
+import ExploreIcon from "@mui/icons-material/Explore";
 
 const NotFound = () => {
   const theme = useTheme();
@@ -60,9 +61,24 @@ const NotFound = () => {
             404
           </Typography>
 
-          <SentimentDissatisfiedIcon
-            sx={{ fontSize: 60, color: "text.secondary", mb: 2 }}
-          />
+          <Box
+            sx={{
+              display: "inline-block",
+              animation: "spinAndFloat 6s ease-in-out infinite",
+              mb: 3,
+              "@keyframes spinAndFloat": {
+                "0%": { transform: "translateY(0) rotate(0deg)" },
+                "25%": { transform: "translateY(-8px) rotate(90deg)" },
+                "50%": { transform: "translateY(0) rotate(180deg)" },
+                "75%": { transform: "translateY(-8px) rotate(270deg)" },
+                "100%": { transform: "translateY(0) rotate(360deg)" },
+              },
+            }}
+          >
+            <ExploreIcon
+              sx={{ fontSize: 80, color: "primary.main", filter: "drop-shadow(0px 8px 16px rgba(25, 118, 210, 0.25))" }}
+            />
+          </Box>
 
           <Typography
             variant="h4"
