@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Home.css";
 import api from "../services/api";
 import { addTrip } from "../redux/actions/tripActions";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTwitter, FaCalendarAlt } from "react-icons/fa";
 /* ── SVG SCENES ─────────────────────────────────────────────── */
 const SceneIceland = () => (
   <svg
@@ -634,13 +634,16 @@ const Home = () => {
               <span
                 style={{
                   position: "absolute",
-                  right: "10px",
+                  right: "12px",
                   top: "50%",
                   transform: "translateY(-50%)",
                   pointerEvents: "none",
+                  color: "var(--ocean)",
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
-                📅
+                <FaCalendarAlt size={16} />
               </span>
             </div>
           </div>
