@@ -165,8 +165,8 @@ const PackingView = () => {
         justifyContent="space-between"
         mb={2}
       >
-        <Typography variant="h5" fontWeight={600}>
-          🎒 Packing Checklist
+        <Typography variant="h5" fontWeight={600} display="flex" alignItems="center">
+          <LuggageIcon color="primary" sx={{ mr: 1, fontSize: "1.8rem" }} /> Packing Checklist
         </Typography>
         {total > 0 && (
           <Tooltip title="Clear all items">
@@ -353,7 +353,7 @@ const PackingView = () => {
           {/* Empty state */}
           {filteredItems.length === 0 && total === 0 && (
             <Box textAlign="center" py={6} color="text.secondary">
-              <Typography variant="h2">🧳</Typography>
+              <LuggageIcon sx={{ fontSize: 64, opacity: 0.3, mb: 1 }} />
               <Typography variant="body1" mt={1}>
                 No items yet. Add one above or pick a template!
               </Typography>
