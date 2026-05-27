@@ -38,6 +38,7 @@ import DateRangeIcon from "@mui/icons-material/DateRange";
 import PlaceIcon from "@mui/icons-material/Place";
 import WalletIcon from "@mui/icons-material/Wallet";
 import ShareIcon from "@mui/icons-material/Share";
+import LinkIcon from "@mui/icons-material/Link";
 import {
   getTrip,
   updateTrip,
@@ -872,7 +873,9 @@ const TripDetail = () => {
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle>Share Trip 🔗</DialogTitle>
+        <DialogTitle sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          Share Trip <LinkIcon color="primary" />
+        </DialogTitle>
         <DialogContent>
           <DialogContentText sx={{ mb: 2 }}>
             Anyone with this link can view your trip to{" "}
@@ -891,7 +894,7 @@ const TripDetail = () => {
             variant="contained"
             onClick={() => {
               navigator.clipboard.writeText(shareLink);
-              toast.success("Link copied to clipboard! 📋");
+              toast.success("Link copied to clipboard successfully!");
             }}
           >
             Copy Link
