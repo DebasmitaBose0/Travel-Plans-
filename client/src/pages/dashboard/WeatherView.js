@@ -14,21 +14,34 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import AirIcon from "@mui/icons-material/Air";
 import OpacityIcon from "@mui/icons-material/Opacity";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import CloudIcon from "@mui/icons-material/Cloud";
+import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+import WbCloudyIcon from "@mui/icons-material/WbCloudy";
+import GrainIcon from "@mui/icons-material/Grain";
+import LuggageIcon from "@mui/icons-material/Luggage";
+import RefreshIcon from "@mui/icons-material/Refresh";
+import PublicIcon from "@mui/icons-material/Public";
+import UmbrellaIcon from "@mui/icons-material/Umbrella";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import ThermostatIcon from "@mui/icons-material/Thermostat";
 import {
   getCurrentWeather,
   getForecast,
 } from "../../redux/actions/weatherActions";
 
 const getWeatherIcon = (desc) => {
-  if (!desc) return "☀️";
+  if (!desc) return <WbSunnyIcon sx={{ fontSize: "inherit", color: "#FFB300" }} />;
   const d = desc.toLowerCase();
-  if (d.includes("rain")) return "🌧️";
-  if (d.includes("cloud")) return "☁️";
-  if (d.includes("thunder")) return "⛈️";
-  if (d.includes("snow")) return "❄️";
-  if (d.includes("clear")) return "☀️";
-  if (d.includes("mist") || d.includes("fog")) return "🌫️";
-  return "🌤️";
+  if (d.includes("rain")) return <ThunderstormIcon sx={{ fontSize: "inherit", color: "#64B5F6" }} />;
+  if (d.includes("cloud")) return <CloudIcon sx={{ fontSize: "inherit", color: "#B0BEC5" }} />;
+  if (d.includes("thunder")) return <ThunderstormIcon sx={{ fontSize: "inherit", color: "#78909C" }} />;
+  if (d.includes("snow")) return <AcUnitIcon sx={{ fontSize: "inherit", color: "#80DEEA" }} />;
+  if (d.includes("clear")) return <WbSunnyIcon sx={{ fontSize: "inherit", color: "#FFB300" }} />;
+  if (d.includes("mist") || d.includes("fog")) return <GrainIcon sx={{ fontSize: "inherit", color: "#CFD8DC" }} />;
+  return <WbCloudyIcon sx={{ fontSize: "inherit", color: "#ECEFF1" }} />;
 };
 
 const WeatherView = () => {
@@ -295,21 +308,38 @@ const WeatherView = () => {
                 height: "100%",
               }}
             >
-              <Typography variant="h6" fontWeight={700} mb={2}>
-                🧳 Travel Tip
-              </Typography>
-              <Typography color="text.secondary" mb={2}>
-                {currentWeather.temperature > 30
-                  ? "🌞 It's hot! Pack light cotton clothes, sunscreen, and stay hydrated."
-                  : currentWeather.temperature > 20
-                    ? "😊 Great weather for exploring! Comfortable clothes recommended."
-                    : currentWeather.temperature > 10
-                      ? "🧥 Pack a light jacket — it can get cool, especially in the evening."
-                      : "🧣 It's cold! Carry warm layers, gloves, and a heavy jacket."}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
+                <LuggageIcon color="primary" />
+                <Typography variant="h6" fontWeight={700}>
+                  Travel Tip
+                </Typography>
+              </Box>
+              <Typography color="text.secondary" mb={2} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                {currentWeather.temperature > 30 ? (
+                  <>
+                    <WbSunnyIcon color="warning" sx={{ fontSize: 20 }} />
+                    {"It's hot! Pack light cotton clothes, sunscreen, and stay hydrated."}
+                  </>
+                ) : currentWeather.temperature > 20 ? (
+                  <>
+                    <SentimentSatisfiedAltIcon color="success" sx={{ fontSize: 20 }} />
+                    {"Great weather for exploring! Comfortable clothes recommended."}
+                  </>
+                ) : currentWeather.temperature > 10 ? (
+                  <>
+                    <ThermostatIcon color="info" sx={{ fontSize: 20 }} />
+                    {"Pack a light jacket — it can get cool, especially in the evening."}
+                  </>
+                ) : (
+                  <>
+                    <ThermostatIcon color="primary" sx={{ fontSize: 20 }} />
+                    {"It's cold! Carry warm layers, gloves, and a heavy jacket."}
+                  </>
+                )}
               </Typography>
               {currentWeather.description?.toLowerCase().includes("rain") && (
-                <Typography color="text.secondary">
-                  ☔ Don't forget your umbrella!
+                <Typography color="text.secondary" sx={{ display: "flex", alignItems: "center", gap: 1, mt: 1 }}>
+                  <UmbrellaIcon color="info" sx={{ fontSize: 20 }} /> Don't forget your umbrella!
                 </Typography>
               )}
               <Box sx={{ mt: "auto", pt: 3 }}>
@@ -326,9 +356,10 @@ const WeatherView = () => {
                     variant="outlined"
                     onClick={handleRefresh}
                     disabled={loading}
+                    startIcon={<RefreshIcon />}
                     sx={{ borderRadius: 2 }}
                   >
-                    {loading ? "Refreshing..." : "🔄 Refresh"}
+                    {loading ? "Refreshing..." : "Refresh"}
                   </Button>
                 </Box>
               </Box>
@@ -409,7 +440,7 @@ const WeatherView = () => {
             borderColor: "divider",
           }}
         >
-          <Typography sx={{ fontSize: 64, mb: 2 }}>🌍</Typography>
+          <PublicIcon sx={{ fontSize: 64, mb: 2, color: "text.disabled" }} />
           <Typography variant="h6" color="text.secondary">
             Search any city to get weather info
           </Typography>
