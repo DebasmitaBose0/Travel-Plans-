@@ -77,4 +77,17 @@ If you are new to Open Source or this project:
 2. If you want to work on an issue, comment on it asking to be assigned. **Wait for assignment** before starting work to avoid duplicated effort.
 3. If you have questions, feel free to ask in the issue thread! We are here to help.
 
+## Branch Isolation Policy
+
+Every pull request must originate from an isolated branch tracking a single goal or issue.
+- Do NOT make commits or push directly to `main` or `master`.
+- Always name your branches in a descriptive, lowercase format, e.g., `fix/jwt-expiration-handling` or `feat/auto-assign-workflow`.
+
+## Development Best Practices
+
+- **Zero-Trust Input Validation**: Sanitize and validate all client input on the backend (using schemas or validations).
+- **Aria Accessibility**: Provide valid `aria-label` or accessible names for interactive elements like custom icon buttons.
+- **Micro-interactions & Transitions**: Ensure any styling transitions or modal states are smooth and include fallback indicators.
+
 Thank you for contributing!
+
