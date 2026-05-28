@@ -16,7 +16,8 @@ We take the security of this project seriously. If you discover a security vulne
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them via email or directly message the project maintainer through private channels.
+Instead, please report them via email at **security-reporting@packgo.org** or directly message the project maintainer through private channels.
+
 
 ### Process
 
