@@ -54,12 +54,14 @@ assignees: ""
 
 ## ✅ Checklist
 
-- [ ] Created a new branch for PR
-- [ ] Have stared the repository
-- [ ] Follows [JavaScript Styleguide](CONTRIBUTING.md#javascript-styleguide)
+- [ ] Created a new branch for PR (e.g. `feat/feature-name` or `fix/issue-name`)
+- [ ] No hardcoded secrets, API keys, or sensitive credentials
+- [ ] Added `aria-label` or accessible names for new visual components
+- [ ] Follows project conventions and style guidelines
 - [ ] No console warnings/errors
-- [ ] Commit messages follow [Git Guidelines](CONTRIBUTING.md#git-commit-messages)
+- [ ] Verified local builds are successful and free of lint errors
 
 ## 💡 Additional Notes (If any)
 
 <!-- Optional: Deployment needs, breaking changes, etc. -->
+
