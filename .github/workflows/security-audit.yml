@@ -1,0 +1,30 @@
+name: Security Audit Scan
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  security-audit:
+    name: Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Run Client Dependency Audit
+        working-directory: ./client
+        run: |
+          npm audit --audit-level=high || echo "High/critical vulnerabilities found in client. Please review."
+
+      - name: Run Server Dependency Audit
+        working-directory: ./server
+        run: |
+          npm audit --audit-level=high || echo "High/critical vulnerabilities found in server. Please review."
