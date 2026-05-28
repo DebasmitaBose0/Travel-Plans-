@@ -18,11 +18,25 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Simple email regex validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      setMessage(null);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    setMessage(null);
+
     try {
       const response = await api.post("/auth/forgot-password", { email });
       setMessage(response.data.data || "Email sent");
@@ -30,6 +44,8 @@ const ForgotPassword = () => {
     } catch (err) {
       setError(err.response?.data?.msg || "Server error");
       setMessage(null);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -107,6 +123,7 @@ const ForgotPassword = () => {
                 fullWidth
                 variant="contained"
                 size="large"
+                disabled={loading}
                 sx={{
                   py: 1.5,
                   mb: 3,
@@ -115,7 +132,7 @@ const ForgotPassword = () => {
                 }}
                 endIcon={<SendIcon />}
               >
-                Send Reset Link
+                {loading ? "Sending..." : "Send Reset Link"}
               </Button>
             </form>
           </Paper>
